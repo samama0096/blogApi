@@ -24,13 +24,6 @@ app.use("/profile", profileroutes)
 
 
 //sample route to check server status:
-app.get('/', (req, res) => {
-
-    res.send('hello from simple server :)')
-
-})
-
-
 
 
 app.listen(port, () => {
