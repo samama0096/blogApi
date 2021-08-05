@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const userroutes = require('../routes/userroutes');
 const blogroutes = require('../routes/blogroutes');
 const profileroutes = require('../routes/profileroutes')
-const port = process.env.port || 2000;
+const port = process.env.PORT || 2000;
 const app = express();
 app.use(express.json());
 
