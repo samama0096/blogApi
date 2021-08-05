@@ -26,8 +26,8 @@ app.use("/profile", profileroutes)
 //sample route to check server status:
 
 
-app.listen(port, () => {
+app.listen(process.env.PORT || 2000, () => {
 
-    console.log(`Listening at ${port}`);
+
 
 })
