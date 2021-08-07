@@ -22,12 +22,16 @@ app.use("/user", userroutes)
 app.use("/blog", blogroutes)
 app.use("/profile", profileroutes)
 
+app.get('/', (req, res) => {
 
-//sample route to check server status:
+        res.send('hello from simple server :)')
+
+    })
+    //sample route to check server status:
 
 
 app.listen(process.env.PORT || 2000, () => {
 
-
+    console.log('Hi!')
 
 })
