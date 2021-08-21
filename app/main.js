@@ -9,18 +9,11 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-
-
-
 //connection to mongo database :
 mongoose.connect(process.env.MONGO_URL, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }, () => {
     console.log("connected to mongo");
 
 });
-
-
-
-
 //setting routes for server's api
 app.use("/user", userroutes)
 app.use("/blog", blogroutes)
@@ -32,8 +25,6 @@ app.get('/', (req, res) => {
 
     })
     //sample route to check server status:
-
-
 app.listen(process.env.PORT || 2000, () => {
 
     console.log('Hi!')
