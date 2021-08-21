@@ -28,7 +28,7 @@ userroutes.post("/register", (req, res) => {
                 console.log(`Username: ${username} is registered successfully!`);
                 res.status(200).send({
                     msg: "success!"
-                    
+
                 });
             });
         } else
