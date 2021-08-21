@@ -14,9 +14,15 @@ blogrouter.post("/upload", (req, res) => {
     blogpost.insertMany({ username: username, title: title, body: body }, (err, result) => {
         if (err) {
 
-            res.status(500).send("database error!")
+            res.status(500).send({
+                msg: "Database error!",
+                data: null
+            })
         } else console.log(result);
-        res.status(200).send("Published!");
+        res.status(200).send({
+            msg: "Published!",
+            data: null
+        });
 
     })
 
@@ -32,10 +38,19 @@ blogrouter.get("/getfeed", (req, res) => {
     blogpost.find({}, (err, doc) => {
 
         if (err) {
-            res.status(500).send("database error!")
+            res.status(500).send({
+                msg: "Databse error!",
+                data: null
+            })
         } else if (doc != null) {
-            res.status(200).send({ feed: doc });
-        } else res.status(400).send("Nothing to show here!");
+            res.status(200).send({
+                msg: "Account deleted successfuly!",
+                data: doc
+            });
+        } else res.status(404).send({
+            msg: "Unable to fetch data!",
+            data: null
+        });
 
     })
 
