@@ -59,8 +59,8 @@ userroutes.post("/register/:username/:email/:password", (req, res) => {
 
 //login route:
 
-userroutes.post("/login", (req, res) => {
-    let { username, password } = req.body;
+userroutes.post("/login/:username/:password", (req, res) => {
+    let { username, password } = req.params;
 
     User.findOne({ username: username }, (err, doc) => {
         if (err) {

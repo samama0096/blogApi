@@ -4,9 +4,9 @@ const Profile = require("../models/users.model");
 const Blogpost = require("../models/blogpost.model");
 
 //get profile data route:
-profilerouter.get("/profile", (req, res) => {
+profilerouter.get("/profile/:username", (req, res) => {
 
-    let { username } = req.body;
+    let { username } = req.params;
     Profile.findOne({ username: username }, (err, doc) => {
 
         if (err) {
@@ -32,9 +32,9 @@ profilerouter.get("/profile", (req, res) => {
 
 
 //delete profile:
-profilerouter.delete("/deleteuser", (req, res) => {
+profilerouter.delete("/deleteuser/:username", (req, res) => {
 
-    let { username } = req.body;
+    let { username } = req.params;
     Profile.deleteOne({ username: username }, (err, d) => {
 
         if (err) {

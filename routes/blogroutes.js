@@ -6,10 +6,9 @@ const blogpost = require('../models/blogpost.model');
 
 //upload blog route:
 
-blogrouter.post("/upload", (req, res) => {
+blogrouter.post("/upload/:username/:title/:body", (req, res) => {
 
-    let { username, title, body } = req.body;
-
+    let { username, title, body } = req.params;
 
     blogpost.insertMany({ username: username, title: title, body: body }, (err, result) => {
         if (err) {
@@ -61,8 +60,8 @@ blogrouter.get("/getfeed", (req, res) => {
 
 //get feed by title!
 
-blogrouter.get("/search", (req, res) => {
-    let { title } = req.body;
+blogrouter.get("/search/:title", (req, res) => {
+    let { title } = req.params;
     blogpost.find({ title: title }, (err, docm) => {
 
         if (err) {
