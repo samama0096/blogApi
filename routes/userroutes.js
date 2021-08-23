@@ -8,8 +8,8 @@ userroutes.use(bodyparser.json())
 
 
 //registeration route:
-userroutes.post("/register", (req, res) => {
-    let { username, email, password } = req.body;
+userroutes.post("/register/:username/:email/:password", (req, res) => {
+    let { username, email, password } = req.params;
 
     User.findOne({ email: email }, (err, reslt) => {
 
