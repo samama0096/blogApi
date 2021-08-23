@@ -5,8 +5,9 @@ const jwt = require('jsonwebtoken')
 const s_key = "nothingmeansnothing";
 const bodyparser = require('body-parser')
 userroutes.use(bodyparser.json())
-userroutes.use(express.bodyparser())
-    //registeration route:
+
+
+//registeration route:
 userroutes.post("/register", (req, res) => {
     let { username, email, password } = req.body;
 
