@@ -23,6 +23,7 @@ userroutes.post("/register", (req, res) => {
         if (reslt == null) {
             User.insertMany({ username: username, email: email, password: password }, (error, result) => {
                 if (error) {
+                    console.log(error);
                     res.send({
                         msg: " error occured!",
                         data: req.body
