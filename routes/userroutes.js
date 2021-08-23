@@ -27,12 +27,13 @@ userroutes.post("/register", (req, res) => {
                         msg: " error occured!",
                         data: req.body
                     })
+                } else if (!error) {
+                    console.log(`Username: ${username} is registered successfully!`);
+                    res.status(200).json({
+                        msg: "success!",
+                        data: req.body
+                    });
                 }
-                console.log(`Username: ${username} is registered successfully!`);
-                res.status(200).json({
-                    msg: "success!",
-                    data: req.body
-                });
             });
         } else
         if (reslt.email == email) {
