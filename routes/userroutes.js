@@ -3,8 +3,10 @@ const userroutes = express.Router();
 const User = require("../models/users.model")
 const jwt = require('jsonwebtoken')
 const s_key = "nothingmeansnothing";
-
-//registeration route:
+const bodyparser = require('body-parser')
+userroutes.use(bodyparser.json())
+userroutes.use(express.bodyparser())
+    //registeration route:
 userroutes.post("/register", (req, res) => {
     let { username, email, password } = req.body;
 
@@ -22,13 +24,13 @@ userroutes.post("/register", (req, res) => {
                 if (error) {
                     res.send({
                         msg: " error occured!",
-                        data: error
+                        data: req.body
                     })
                 }
                 console.log(`Username: ${username} is registered successfully!`);
-                res.status(200).send({
-                    msg: "success!"
-
+                res.status(200).json({
+                    msg: "success!",
+                    data: req.body
                 });
             });
         } else
